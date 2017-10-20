@@ -1,29 +1,24 @@
 #include <stdio.h>
 #include <math.h>
-
-/*DECIMAL_BINARIO*/
-float dec_bin (int n)
-{
-	float bin=0, cont=0;
-	while(n!=0){
-		bin += ((n%2) * pow(10, cont));
-		n = floor(n/2);
-		cont++;
-	}
-	return bin;
-}
-float bin_dec (int n)
-{
-	int dec=0, cont=0;
-	while(n!=0){
-		if(n%10 == 1){
-			dec += (pow(2, cont));
-		}
-		n = floor(n/10);
-		cont++;
-	}
-	return dec;
-}
+/*Exemplo de entradas
+*Tipo CONVERSAO:
+	TEMPERATURA = 1
+	BASE NUMERICA = 2
+*Tipo entrada/saida:
+	TEMP:
+		CELSIUS = 1
+		FAHRENHEIT = 2
+		KELVIN = 3
+	BASE NUMERICA:
+		DECIMAL = 1
+		BINARIO = 2
+*EXEMPLO :
+	(CONVERSAO) (ENTRADA) (SAIDA) (NUMERO)
+	  Temp(1)    Fahr(2)  Kelv(3)    58
+	Digitar:	1...2...3...58
+	(colocar espaco no lugar de ...)
+*A CONVERSAO DE BINARIO<>DECIMAL SO FUNCIONAL PARA
+DECIMAIS MENORES DE 256 E BINARIOS COM ATE 8 BITS*/
 /*CELSIUS_FAHRENHEIT_KELVIN*/
 float cel_fah (int n)
 {
@@ -52,6 +47,30 @@ float kel_fah (int n)
 	float fah;
 	fah = cel_fah(kel_cel(n));
 	return fah;
+}
+
+/*DECIMAL_BINARIO*/
+float dec_bin (int n)
+{
+	float bin=0, cont=0;
+	while(n!=0){
+		bin += ((n%2) * pow(10, cont));
+		n = floor(n/2);
+		cont++;
+	}
+	return bin;
+}
+float bin_dec (int n)
+{
+	int dec=0, cont=0;
+	while(n!=0){
+		if(n%10 == 1){
+			dec += (pow(2, cont));
+		}
+		n = floor(n/10);
+		cont++;
+	}
+	return dec;
 }
 
 /////////////////////////////////////
