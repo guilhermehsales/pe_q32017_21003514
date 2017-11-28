@@ -10,14 +10,19 @@ typedef unsigned long int ulint;
 
 ulint f1(ulint x)
 {	
-	int n = x % 2;
-	return n;
+	if(x % 2 == 1){
+		if(x == 1) return 1;
+		else return 0;
+	}
+	return f1(x/2);
 }
 
-ulint f2(ulint x)
+ulint f1(ulint x)
 {
-	return x & 1;
+	if (x&1) return x==1? 1 : 0;
+	return f1(x >> 1);
 }
+
 
 int main(void){
 
